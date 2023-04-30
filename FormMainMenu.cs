@@ -1,4 +1,5 @@
 using Sua_Carteira.Classes;
+using Sua_Carteira.Dados;
 using Sua_Carteira.Forms;
 
 namespace Sua_Carteira {
@@ -6,14 +7,25 @@ namespace Sua_Carteira {
 
     private Button currentButton;
     private Random random;
-    private int tempIndex;
     private Form activeForm;
+
+    private int tempIndex;
 
     public FormMainMenu() {
       InitializeComponent();
       random = new Random();
     }
 
+    private void FormMainMenu_Load(object sender, EventArgs e) {
+      var db = new Context();
+      var contatos = db.Contatos.ToList();
+
+      foreach (var item in contatos) {
+        MessageBox.Show(item.Naoo);
+      }
+    }
+
+    #region Cores nos Botões
     private Color SelectThemeColor() {
       int index = random.Next(ThemeColor.ColorList.Count);
       while(tempIndex == index) {
@@ -70,6 +82,16 @@ namespace Sua_Carteira {
 
     }
 
+    private void Reset() {
+      DisableButton();
+      lblTitle.Text = "HOME";
+      panelTitleBar.BackColor = Color.FromArgb(0, 150, 130);
+      currentButton = null;
+      btnCloseChildForm.Visible = false;
+    }
+
+    #endregion
+
     private void btnDispesas_Click(object sender, EventArgs e) {
       OpenChieldForm(new FormDespesas(), sender);
     }
@@ -107,18 +129,6 @@ namespace Sua_Carteira {
         activeForm.Close();
         Reset();
       }
-    }
-
-    private void Reset() {
-      DisableButton();
-      lblTitle.Text = "HOME";
-      panelTitleBar.BackColor = Color.FromArgb(0, 150, 130);
-      currentButton = null;
-      btnCloseChildForm.Visible = false;
-    }
-
-    private void FormMainMenu_Load(object sender, EventArgs e) {
-
     }
   }
 }
