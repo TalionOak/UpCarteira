@@ -79,27 +79,27 @@ namespace Sua_Carteira {
     }
 
     private void btnGraficos_Click(object sender, EventArgs e) {
-      OpenChieldForm(new FormContas(), sender);
+      OpenChieldForm(new FormGraficos(), sender);
     }
 
     private void btnCategorias_Click(object sender, EventArgs e) {
-      OpenChieldForm(new FormContas(), sender);
+      OpenChieldForm(new FormCategorias(), sender);
     }
 
     private void btnPagamentosRegulares_Click(object sender, EventArgs e) {
-      OpenChieldForm(new FormContas(), sender);
+      OpenChieldForm(new FormPagamentosRegulares(), sender);
     }
 
     private void btnLembrete_Click(object sender, EventArgs e) {
-      OpenChieldForm(new FormContas(), sender);
+      OpenChieldForm(new FormLembretes(), sender);
     }
 
     private void btnMoedas_Click(object sender, EventArgs e) {
-      OpenChieldForm(new FormContas(), sender);
+      OpenChieldForm(new FormMoedas(), sender);
     }
 
     private void btnConfiguracoes_Click(object sender, EventArgs e) {
-      OpenChieldForm(new FormContas(), sender);
+      OpenChieldForm(new FormConfiguracoes(), sender);
     }
 
     private void btnCloseChildForm_Click(object sender, EventArgs e) {

@@ -1,5 +1,4 @@
-﻿using Sua_Carteira.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,21 +12,6 @@ namespace Sua_Carteira.Forms {
   public partial class FormDespesas : Form {
     public FormDespesas() {
       InitializeComponent();
-    }
-
-    private void FormDespesas_Load(object sender, EventArgs e) {
-      LoadTheme();
-    }
-
-    private void LoadTheme() {
-      foreach (Control btns in this.Controls) {
-        if (btns.GetType() == typeof(Button)) {
-          Button btn = (Button) btns;
-          btn.BackColor = ThemeColor.PrimaryColor;
-          btn.ForeColor = Color.White;
-          btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-        }
-      }
     }
   }
 }

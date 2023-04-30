@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sua_Carteira.Forms {
-  public partial class FormContas : Form {
-    public FormContas() {
+  public partial class FormMoedas : Form {
+    public FormMoedas() {
       InitializeComponent();
     }
   }
