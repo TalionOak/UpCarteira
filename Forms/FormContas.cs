@@ -13,5 +13,9 @@ namespace Sua_Carteira.Forms {
     public FormContas() {
       InitializeComponent();
     }
+
+    private void FormContas_Load(object sender, EventArgs e) {
+
+    }
   }
 }

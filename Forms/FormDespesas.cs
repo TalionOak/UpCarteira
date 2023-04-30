@@ -13,5 +13,9 @@ namespace Sua_Carteira.Forms {
     public FormDespesas() {
       InitializeComponent();
     }
+
+    private void FormDespesas_Load(object sender, EventArgs e) {
+
+    }
   }
 }

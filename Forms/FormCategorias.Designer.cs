@@ -23,10 +23,17 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-      this.components = new System.ComponentModel.Container();
+      this.SuspendLayout();
+      // 
+      // FormCategorias
+      // 
+      this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Text = "FormCategorias";
+      this.Name = "FormCategorias";
+      this.Text = "CATEGORIAS";
+      this.ResumeLayout(false);
+
     }
 
     #endregion
