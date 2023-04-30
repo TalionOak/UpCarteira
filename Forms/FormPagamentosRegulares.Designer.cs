@@ -32,6 +32,7 @@
       this.ClientSize = new System.Drawing.Size(800, 450);
       this.Name = "FormPagamentosRegulares";
       this.Text = "PAGAMENTOS REGULARES";
+      this.Load += new System.EventHandler(this.FormPagamentosRegulares_Load);
       this.ResumeLayout(false);
 
     }

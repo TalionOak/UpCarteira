@@ -32,6 +32,7 @@
       this.ClientSize = new System.Drawing.Size(800, 450);
       this.Name = "FormMoedas";
       this.Text = "MOEDAS";
+      this.Load += new System.EventHandler(this.FormMoedas_Load);
       this.ResumeLayout(false);
 
     }

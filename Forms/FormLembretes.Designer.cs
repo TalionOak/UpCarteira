@@ -32,6 +32,7 @@
       this.ClientSize = new System.Drawing.Size(800, 450);
       this.Name = "FormLembretes";
       this.Text = "LEMBRETES";
+      this.Load += new System.EventHandler(this.FormLembretes_Load);
       this.ResumeLayout(false);
 
     }

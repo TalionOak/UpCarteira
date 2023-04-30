@@ -32,6 +32,7 @@
       this.ClientSize = new System.Drawing.Size(800, 450);
       this.Name = "FormCategorias";
       this.Text = "CATEGORIAS";
+      this.Load += new System.EventHandler(this.FormCategorias_Load);
       this.ResumeLayout(false);
 
     }
