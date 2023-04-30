@@ -32,9 +32,14 @@
       this.btnGraficos = new System.Windows.Forms.Button();
       this.btnContas = new System.Windows.Forms.Button();
       this.btnDispesas = new System.Windows.Forms.Button();
-      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+      this.panelTitleBar = new System.Windows.Forms.Panel();
+      this.btnCloseChildForm = new System.Windows.Forms.Button();
+      this.lblTitle = new System.Windows.Forms.Label();
+      this.panelDesktopPanel = new System.Windows.Forms.Panel();
       this.panelLeft.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+      this.panelTitleBar.SuspendLayout();
       this.SuspendLayout();
       // 
       // panelLeft
@@ -48,7 +53,7 @@
       this.panelLeft.Controls.Add(this.btnGraficos);
       this.panelLeft.Controls.Add(this.btnContas);
       this.panelLeft.Controls.Add(this.btnDispesas);
-      this.panelLeft.Controls.Add(this.pictureBox1);
+      this.panelLeft.Controls.Add(this.pictureBoxLogo);
       this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
       this.panelLeft.Location = new System.Drawing.Point(0, 0);
       this.panelLeft.Name = "panelLeft";
@@ -178,33 +183,85 @@
       this.btnDispesas.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
       this.btnDispesas.Size = new System.Drawing.Size(159, 52);
       this.btnDispesas.TabIndex = 4;
-      this.btnDispesas.Text = "Dispesas";
+      this.btnDispesas.Text = "Despesas";
       this.btnDispesas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.btnDispesas.UseVisualStyleBackColor = true;
       this.btnDispesas.Click += new System.EventHandler(this.btnDispesas_Click);
       // 
-      // pictureBox1
+      // pictureBoxLogo
       // 
-      this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-      this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-      this.pictureBox1.Image = global::Sua_Carteira.Properties.Resources.logo;
-      this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-      this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new System.Drawing.Size(159, 92);
-      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-      this.pictureBox1.TabIndex = 3;
-      this.pictureBox1.TabStop = false;
+      this.pictureBoxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+      this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Top;
+      this.pictureBoxLogo.Image = global::Sua_Carteira.Properties.Resources.logo;
+      this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
+      this.pictureBoxLogo.Name = "pictureBoxLogo";
+      this.pictureBoxLogo.Size = new System.Drawing.Size(159, 92);
+      this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+      this.pictureBoxLogo.TabIndex = 3;
+      this.pictureBoxLogo.TabStop = false;
+      // 
+      // panelTitleBar
+      // 
+      this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+      this.panelTitleBar.Controls.Add(this.btnCloseChildForm);
+      this.panelTitleBar.Controls.Add(this.lblTitle);
+      this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
+      this.panelTitleBar.Location = new System.Drawing.Point(159, 0);
+      this.panelTitleBar.Name = "panelTitleBar";
+      this.panelTitleBar.Size = new System.Drawing.Size(1054, 92);
+      this.panelTitleBar.TabIndex = 2;
+      // 
+      // btnCloseChildForm
+      // 
+      this.btnCloseChildForm.Dock = System.Windows.Forms.DockStyle.Left;
+      this.btnCloseChildForm.FlatAppearance.BorderSize = 0;
+      this.btnCloseChildForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnCloseChildForm.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.btnCloseChildForm.Location = new System.Drawing.Point(0, 0);
+      this.btnCloseChildForm.Name = "btnCloseChildForm";
+      this.btnCloseChildForm.Size = new System.Drawing.Size(92, 92);
+      this.btnCloseChildForm.TabIndex = 1;
+      this.btnCloseChildForm.Text = "X";
+      this.btnCloseChildForm.UseVisualStyleBackColor = true;
+      this.btnCloseChildForm.Visible = false;
+      this.btnCloseChildForm.Click += new System.EventHandler(this.btnCloseChildForm_Click);
+      // 
+      // lblTitle
+      // 
+      this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+      this.lblTitle.AutoSize = true;
+      this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+      this.lblTitle.ForeColor = System.Drawing.Color.White;
+      this.lblTitle.Location = new System.Drawing.Point(460, 31);
+      this.lblTitle.Name = "lblTitle";
+      this.lblTitle.Size = new System.Drawing.Size(76, 30);
+      this.lblTitle.TabIndex = 0;
+      this.lblTitle.Text = "HOME";
+      // 
+      // panelDesktopPanel
+      // 
+      this.panelDesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.panelDesktopPanel.Location = new System.Drawing.Point(159, 92);
+      this.panelDesktopPanel.Name = "panelDesktopPanel";
+      this.panelDesktopPanel.Size = new System.Drawing.Size(1054, 542);
+      this.panelDesktopPanel.TabIndex = 3;
       // 
       // FormMainMenu
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1213, 634);
+      this.Controls.Add(this.panelDesktopPanel);
+      this.Controls.Add(this.panelTitleBar);
       this.Controls.Add(this.panelLeft);
+      this.MinimumSize = new System.Drawing.Size(1229, 673);
       this.Name = "FormMainMenu";
       this.Text = "Sua Carteira";
+      this.Load += new System.EventHandler(this.FormMainMenu_Load);
       this.panelLeft.ResumeLayout(false);
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+      this.panelTitleBar.ResumeLayout(false);
+      this.panelTitleBar.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -219,6 +276,10 @@
     private Button btnGraficos;
     private Button btnContas;
     private Button btnDispesas;
-    private PictureBox pictureBox1;
+    private PictureBox pictureBoxLogo;
+    private Panel panelTitleBar;
+    private Label lblTitle;
+    private Panel panelDesktopPanel;
+    private Button btnCloseChildForm;
   }
 }

@@ -1,4 +1,5 @@
 using Sua_Carteira.Classes;
+using Sua_Carteira.Forms;
 
 namespace Sua_Carteira {
   public partial class FormMainMenu : Form {
@@ -6,6 +7,7 @@ namespace Sua_Carteira {
     private Button currentButton;
     private Random random;
     private int tempIndex;
+    private Form activeForm;
 
     public FormMainMenu() {
       InitializeComponent();
@@ -31,6 +33,10 @@ namespace Sua_Carteira {
           currentButton.BackColor = color;
           currentButton.ForeColor = Color.Black;
           currentButton.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+          panelTitleBar.BackColor = ThemeColor.ChangeColorBrigtness(color, -0.3);
+          ThemeColor.PrimaryColor = color;
+          ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrigtness(color, -0.3);
+          btnCloseChildForm.Visible = true;
         }
       }
     }
@@ -45,40 +51,74 @@ namespace Sua_Carteira {
       }
     }
 
+    private void OpenChieldForm(Form childForm, object btnSender) {
+
+      if(activeForm != null) {
+        activeForm.Close();
+      }
+
+      ActivateButton(btnSender);
+      activeForm = childForm;
+      childForm.TopLevel = false;
+      childForm.FormBorderStyle = FormBorderStyle.None;
+      childForm.Dock = DockStyle.Fill;
+      panelDesktopPanel.Controls.Add(childForm);
+      panelDesktopPanel.Tag = childForm;
+      childForm.BringToFront();
+      childForm.Show();
+      lblTitle.Text = childForm.Text;
+
+    }
+
     private void btnDispesas_Click(object sender, EventArgs e) {
-      ActivateButton(sender);
+      OpenChieldForm(new FormDespesas(), sender);
     }
 
     private void btnContas_Click(object sender, EventArgs e) {
-      ActivateButton(sender);
+      OpenChieldForm(new FormContas(), sender);
     }
 
     private void btnGraficos_Click(object sender, EventArgs e) {
-      ActivateButton(sender);
+      OpenChieldForm(new FormContas(), sender);
     }
 
     private void btnCategorias_Click(object sender, EventArgs e) {
-      ActivateButton(sender);
+      OpenChieldForm(new FormContas(), sender);
     }
 
     private void btnPagamentosRegulares_Click(object sender, EventArgs e) {
-      ActivateButton(sender);
+      OpenChieldForm(new FormContas(), sender);
     }
 
     private void btnLembrete_Click(object sender, EventArgs e) {
-      ActivateButton(sender);
+      OpenChieldForm(new FormContas(), sender);
     }
 
     private void btnMoedas_Click(object sender, EventArgs e) {
-      ActivateButton(sender);
+      OpenChieldForm(new FormContas(), sender);
     }
 
     private void btnConfiguracoes_Click(object sender, EventArgs e) {
-      ActivateButton(sender);
+      OpenChieldForm(new FormContas(), sender);
+    }
+
+    private void btnCloseChildForm_Click(object sender, EventArgs e) {
+      if(activeForm != null) {
+        activeForm.Close();
+        Reset();
+      }
+    }
+
+    private void Reset() {
+      DisableButton();
+      lblTitle.Text = "HOME";
+      panelTitleBar.BackColor = Color.FromArgb(0, 150, 130);
+      currentButton = null;
+      btnCloseChildForm.Visible = false;
     }
 
     private void FormMainMenu_Load(object sender, EventArgs e) {
-      ActivateButton(sender);
+
     }
   }
 }
