@@ -25,6 +25,14 @@ namespace Sua_Carteira {
 
     private void btnRegistrar_Click(object sender, EventArgs e) {
       if (ValidateChildren(ValidationConstraints.Enabled)) {
+
+        //Verificar email repetido.
+        var encontrou = banco.Usuarios.Where(x => x.Email == usuario.Email).FirstOrDefault();
+        if (encontrou != null) {
+          errorProvider1.SetError(txtEmail, "E-mail já em uso!");
+          return;
+        }
+
         usuario.Senha = EncriptarSenha(usuario.Senha);
         banco.Add(usuario);
         banco.SaveChanges();
