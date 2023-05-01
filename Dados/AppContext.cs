@@ -2,7 +2,7 @@
 using Sua_Carteira.Dados.Entidades;
 
 namespace Sua_Carteira.Dados {
-  public class Context : DbContext {
+  public class AppContext : DbContext {
 
     protected override void OnConfiguring(DbContextOptionsBuilder options) {
       if (!options.IsConfigured) {
@@ -11,6 +11,6 @@ namespace Sua_Carteira.Dados {
       }
     }
 
-    public DbSet<Contato> Contatos { get; set; }
+    public DbSet<Usuarios> Usuarios { get; set; }
   }
 }

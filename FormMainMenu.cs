@@ -17,12 +17,12 @@ namespace Sua_Carteira {
     }
 
     private void FormMainMenu_Load(object sender, EventArgs e) {
-      var db = new Context();
-      var contatos = db.Contatos.ToList();
+      //var db = new Dados.AppContext();
+      //var contatos = db.Usuarios.ToList();
 
-      foreach (var item in contatos) {
-        MessageBox.Show(item.Naoo);
-      }
+      //foreach (var item in contatos) {
+      //  MessageBox.Show(item.Nome);
+      //}
     }
 
     #region Cores nos Botões

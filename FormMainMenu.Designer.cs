@@ -256,6 +256,7 @@
       this.Controls.Add(this.panelLeft);
       this.MinimumSize = new System.Drawing.Size(973, 582);
       this.Name = "FormMainMenu";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Sua Carteira";
       this.Load += new System.EventHandler(this.FormMainMenu_Load);
       this.panelLeft.ResumeLayout(false);
