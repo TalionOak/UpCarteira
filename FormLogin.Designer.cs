@@ -23,12 +23,15 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
+      this.components = new System.ComponentModel.Container();
       this.btnEntrar = new System.Windows.Forms.Button();
       this.label1 = new System.Windows.Forms.Label();
       this.txtEmail = new System.Windows.Forms.TextBox();
       this.txtSenha = new System.Windows.Forms.TextBox();
       this.label2 = new System.Windows.Forms.Label();
       this.btnRegistrar = new System.Windows.Forms.Button();
+      this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+      ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
       this.SuspendLayout();
       // 
       // btnEntrar
@@ -37,9 +40,10 @@
       this.btnEntrar.Location = new System.Drawing.Point(243, 221);
       this.btnEntrar.Name = "btnEntrar";
       this.btnEntrar.Size = new System.Drawing.Size(93, 31);
-      this.btnEntrar.TabIndex = 0;
+      this.btnEntrar.TabIndex = 2;
       this.btnEntrar.Text = "Entrar";
       this.btnEntrar.UseVisualStyleBackColor = true;
+      this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
       // 
       // label1
       // 
@@ -55,14 +59,18 @@
       this.txtEmail.Location = new System.Drawing.Point(191, 119);
       this.txtEmail.Name = "txtEmail";
       this.txtEmail.Size = new System.Drawing.Size(205, 23);
-      this.txtEmail.TabIndex = 2;
+      this.txtEmail.TabIndex = 0;
+      this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
+      this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
       // 
       // txtSenha
       // 
       this.txtSenha.Location = new System.Drawing.Point(191, 179);
       this.txtSenha.Name = "txtSenha";
       this.txtSenha.Size = new System.Drawing.Size(205, 23);
-      this.txtSenha.TabIndex = 4;
+      this.txtSenha.TabIndex = 1;
+      this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
+      this.txtSenha.Validating += new System.ComponentModel.CancelEventHandler(this.txtSenha_Validating);
       // 
       // label2
       // 
@@ -79,15 +87,20 @@
       this.btnRegistrar.Location = new System.Drawing.Point(243, 268);
       this.btnRegistrar.Name = "btnRegistrar";
       this.btnRegistrar.Size = new System.Drawing.Size(93, 31);
-      this.btnRegistrar.TabIndex = 5;
+      this.btnRegistrar.TabIndex = 3;
       this.btnRegistrar.Text = "Registrar-se";
       this.btnRegistrar.UseVisualStyleBackColor = true;
       this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+      // 
+      // errorProvider1
+      // 
+      this.errorProvider1.ContainerControl = this;
       // 
       // FormLogin
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
       this.ClientSize = new System.Drawing.Size(606, 388);
       this.Controls.Add(this.btnRegistrar);
@@ -103,6 +116,7 @@
       this.Text = "Sua Carteira";
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLogin_FormClosing);
       this.Load += new System.EventHandler(this.FormLogin_Load);
+      ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -116,5 +130,6 @@
     private TextBox txtSenha;
     private Label label2;
     private Button btnRegistrar;
+    private ErrorProvider errorProvider1;
   }
 }

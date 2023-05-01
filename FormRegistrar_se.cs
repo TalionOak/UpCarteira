@@ -51,12 +51,13 @@ namespace Sua_Carteira {
       banco = new Banco();
       usuario = new Usuarios();
     }
+
+    #region Validação
+
     private bool IsEmail(string email) {
       string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
       return Regex.IsMatch(email, pattern);
     }
-
-    #region Validação
 
     private void txtNome_Validating(object sender, System.ComponentModel.CancelEventArgs e) {
       if (string.IsNullOrEmpty(txtNome.Text)) {
