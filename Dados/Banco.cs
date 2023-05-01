@@ -12,5 +12,6 @@ namespace Sua_Carteira.Dados {
     }
 
     public DbSet<Usuarios> Usuarios { get; set; }
+    public DbSet<Contas> Contas { get; set; } 
   }
 }

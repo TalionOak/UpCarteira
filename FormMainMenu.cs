@@ -1,22 +1,38 @@
 using Sua_Carteira.Classes;
 using Sua_Carteira.Dados;
+using Sua_Carteira.Dados.Entidades;
 using Sua_Carteira.Forms;
 
 namespace Sua_Carteira {
   public partial class FormMainMenu : Form {
 
+    #region Tema
     private Button currentButton;
     private Random random;
     private Form activeForm;
+    private int tempIndex; 
+    #endregion
 
-    private int tempIndex;
+    private Usuarios usuario;
+    private Banco banco;
 
-    public FormMainMenu() {
+
+    public FormMainMenu(Usuarios usuario) {
       InitializeComponent();
       random = new Random();
+
+      this.usuario = usuario;
+      this.Text = $"Carteira de {usuario.Nome}.";
+
     }
 
     private void FormMainMenu_Load(object sender, EventArgs e) {
+      this.banco = new Banco();
+      var contas = banco.Contas.Where(x => x.UsuarioFk == usuario.usuarioId).ToList();
+
+      var saldoAtual = contas.Where(x => x.IncluirSaldo == true).Select(x => x.Saldo).Sum();
+      lblSaldo.Text = $"{usuario.Nome}\nSaldo: R${saldoAtual}";
+
     }
 
     #region Cores nos Botões

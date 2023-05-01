@@ -41,9 +41,9 @@ namespace Sua_Carteira {
       senha = txtSenha.Text;
 
       if (ValidateChildren(ValidationConstraints.Enabled)) {
-        var encontrou = banco.Usuarios.Where(x => x.Email == email && x.Senha == EncriptarSenha(senha)).FirstOrDefault();
-        if (encontrou != null) {
-          new FormMainMenu().Show();
+        var usuario = banco.Usuarios.Where(x => x.Email == email && x.Senha == EncriptarSenha(senha)).FirstOrDefault();
+        if (usuario != null) {
+          new FormMainMenu(usuario).Show();
           fecharApp = false;
           this.Close();
           return;
