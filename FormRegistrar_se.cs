@@ -35,6 +35,7 @@ namespace Sua_Carteira {
     }
 
     private void FormRegistrar_se_FormClosing(object sender, FormClosingEventArgs e) {
+      e.Cancel = false;
       formLogin.Show();
     }
 
