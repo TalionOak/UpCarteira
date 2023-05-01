@@ -37,6 +37,9 @@ namespace Sua_Carteira {
     }
 
     private void btnEntrar_Click(object sender, EventArgs e) {
+      email = txtEmail.Text;
+      senha = txtSenha.Text;
+
       if (ValidateChildren(ValidationConstraints.Enabled)) {
         var encontrou = banco.Usuarios.Where(x => x.Email == email && x.Senha == EncriptarSenha(senha)).FirstOrDefault();
         if (encontrou != null) {
