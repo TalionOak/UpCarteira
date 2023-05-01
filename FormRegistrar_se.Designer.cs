@@ -43,7 +43,7 @@
       this.txtSenha.Name = "txtSenha";
       this.txtSenha.PasswordChar = '*';
       this.txtSenha.Size = new System.Drawing.Size(205, 23);
-      this.txtSenha.TabIndex = 10;
+      this.txtSenha.TabIndex = 2;
       this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
       this.txtSenha.Validating += new System.ComponentModel.CancelEventHandler(this.txtSenha_Validating);
       // 
@@ -61,7 +61,7 @@
       this.txtEmail.Location = new System.Drawing.Point(184, 135);
       this.txtEmail.Name = "txtEmail";
       this.txtEmail.Size = new System.Drawing.Size(205, 23);
-      this.txtEmail.TabIndex = 8;
+      this.txtEmail.TabIndex = 1;
       this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
       this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
       // 
@@ -80,7 +80,7 @@
       this.btnRegistrar.Location = new System.Drawing.Point(236, 297);
       this.btnRegistrar.Name = "btnRegistrar";
       this.btnRegistrar.Size = new System.Drawing.Size(95, 33);
-      this.btnRegistrar.TabIndex = 6;
+      this.btnRegistrar.TabIndex = 4;
       this.btnRegistrar.Text = "Registrar-se";
       this.btnRegistrar.UseVisualStyleBackColor = true;
       this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -90,7 +90,7 @@
       this.txtNome.Location = new System.Drawing.Point(184, 78);
       this.txtNome.Name = "txtNome";
       this.txtNome.Size = new System.Drawing.Size(205, 23);
-      this.txtNome.TabIndex = 12;
+      this.txtNome.TabIndex = 0;
       this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
       this.txtNome.Validating += new System.ComponentModel.CancelEventHandler(this.txtNome_Validating);
       // 
@@ -113,7 +113,7 @@
       this.txtSenhaConfirmar.Name = "txtSenhaConfirmar";
       this.txtSenhaConfirmar.PasswordChar = '*';
       this.txtSenhaConfirmar.Size = new System.Drawing.Size(205, 23);
-      this.txtSenhaConfirmar.TabIndex = 14;
+      this.txtSenhaConfirmar.TabIndex = 3;
       this.txtSenhaConfirmar.Leave += new System.EventHandler(this.txtSenhaConfirmar_Leave);
       this.txtSenhaConfirmar.Validating += new System.ComponentModel.CancelEventHandler(this.txtSenhaConfirmar_Validating);
       // 

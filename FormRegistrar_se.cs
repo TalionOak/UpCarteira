@@ -1,12 +1,13 @@
 ﻿using Sua_Carteira.Dados;
 using Sua_Carteira.Dados.Entidades;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Sua_Carteira {
   public partial class FormRegistrar_se : Form {
 
     private Form formLogin;
-    private Banco ctx;
+    private Banco banco;
     private Usuarios usuario;
     private string senhaConfirmar;
 
@@ -15,8 +16,20 @@ namespace Sua_Carteira {
       this.formLogin = formLogin;
     }
 
+    private string EncriptarSenha(string senha) {
+      byte[] data = Encoding.ASCII.GetBytes(senha);
+      data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+      string hash = Encoding.ASCII.GetString(data);
+      return hash;
+    }
+
     private void btnRegistrar_Click(object sender, EventArgs e) {
       if (ValidateChildren(ValidationConstraints.Enabled)) {
+        usuario.Senha = EncriptarSenha(usuario.Senha);
+        banco.Add(usuario);
+        banco.SaveChanges();
+
+        MessageBox.Show("Usuario registrado!");
         this.Close();
       };
     }
@@ -26,9 +39,15 @@ namespace Sua_Carteira {
     }
 
     private void FormRegistrar_se_Load(object sender, EventArgs e) {
-      ctx = new Banco();
+      banco = new Banco();
       usuario = new Usuarios();
     }
+    private bool IsEmail(string email) {
+      string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+      return Regex.IsMatch(email, pattern);
+    }
+
+    #region Validação
 
     private void txtNome_Validating(object sender, System.ComponentModel.CancelEventArgs e) {
       if (string.IsNullOrEmpty(txtNome.Text)) {
@@ -40,16 +59,11 @@ namespace Sua_Carteira {
       }
     }
 
-    private bool IsEmail(string email) {
-      string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-      return Regex.IsMatch(email, pattern);
-    }
-
     private void txtEmail_Validating(object sender, System.ComponentModel.CancelEventArgs e) {
       if (string.IsNullOrEmpty(txtEmail.Text)) {
         e.Cancel = true;
         errorProvider1.SetError(txtEmail, "Por favor, insira um e-mail!");
-      } else if (!IsEmail(usuario.Email)){
+      } else if (!IsEmail(usuario.Email)) {
         e.Cancel = true;
         errorProvider1.SetError(txtEmail, "E-mail informado não é valido!");
       } else {
@@ -68,10 +82,6 @@ namespace Sua_Carteira {
       }
     }
 
-    private void txtSenha_Leave(object sender, EventArgs e) {
-      usuario.Senha = txtSenha.Text;
-    }
-
     private void txtSenhaConfirmar_Validating(object sender, System.ComponentModel.CancelEventArgs e) {
       if (string.IsNullOrEmpty(txtSenhaConfirmar.Text)) {
         e.Cancel = true;
@@ -84,6 +94,12 @@ namespace Sua_Carteira {
         errorProvider1.SetError(txtSenhaConfirmar, null);
       }
     }
+    #endregion
+
+    #region Setando valores
+    private void txtSenha_Leave(object sender, EventArgs e) {
+      usuario.Senha = txtSenha.Text;
+    }
 
     private void txtSenhaConfirmar_Leave(object sender, EventArgs e) {
       senhaConfirmar = txtSenhaConfirmar.Text;
@@ -95,6 +111,7 @@ namespace Sua_Carteira {
 
     private void txtNome_Leave(object sender, EventArgs e) {
       usuario.Nome = txtNome.Text;
-    }
+    } 
+    #endregion
   }
 }
