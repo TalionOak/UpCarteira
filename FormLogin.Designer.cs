@@ -60,6 +60,7 @@
       this.txtEmail.Name = "txtEmail";
       this.txtEmail.Size = new System.Drawing.Size(205, 23);
       this.txtEmail.TabIndex = 0;
+      this.txtEmail.Text = "admin@admin.com";
       this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
       this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
       // 
@@ -67,8 +68,10 @@
       // 
       this.txtSenha.Location = new System.Drawing.Point(191, 179);
       this.txtSenha.Name = "txtSenha";
+      this.txtSenha.PasswordChar = '*';
       this.txtSenha.Size = new System.Drawing.Size(205, 23);
       this.txtSenha.TabIndex = 1;
+      this.txtSenha.Text = "admin";
       this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
       this.txtSenha.Validating += new System.ComponentModel.CancelEventHandler(this.txtSenha_Validating);
       // 
