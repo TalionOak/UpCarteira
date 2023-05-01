@@ -2,7 +2,7 @@
 using Sua_Carteira.Dados.Entidades;
 
 namespace Sua_Carteira.Dados {
-  public class AppContext : DbContext {
+  public class Banco : DbContext {
 
     protected override void OnConfiguring(DbContextOptionsBuilder options) {
       if (!options.IsConfigured) {
