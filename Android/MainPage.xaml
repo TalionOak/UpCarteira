@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SuaCarteiraAPP.MainPage">
+    <VerticalStackLayout>
+        <HorizontalStackLayout
+            VerticalOptions="Center"
+            Background="#00B2FF"
+            Padding="10">
+
+            <Image
+                HorizontalOptions="Start"
+                WidthRequest="50"
+                Margin="10,0"
+                Source="sua_carteira_icone.png" Aspect="Fill" />
+
+            <Label
+                Margin="30,0"
+                Text="Sua Carteira" 
+                VerticalOptions="Center"
+                FontSize="Large"/>
+        </HorizontalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="2*" />
+                <RowDefinition />
+                <RowDefinition
+                    Height="100" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label 
+                Grid.Row="0"
+                Text="Nome"
+                   Padding="10"/>
+
+            <Label
+                Grid.Row="1"
+                Text="Seu saldo neste mês está Positivo"
+                Padding="10" />
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
