@@ -1,4 +1,6 @@
-﻿namespace UpCarteira
+﻿using UpCarteira.Views;
+
+namespace UpCarteira
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new TransactionList());
         }
     }
 }

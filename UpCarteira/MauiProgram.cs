@@ -22,8 +22,10 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
+        var app = builder.Build();
+        ServiceHelper.Initialize(app.Services);
 
-        return builder.Build();
+        return app;
     }
 
     private static MauiAppBuilder RegisterDatabaseAndRepositories(this MauiAppBuilder mauiAppBuilder)

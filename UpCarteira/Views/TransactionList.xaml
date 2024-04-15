@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UpCarteira.Views.TransactionList"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Listagem"
+    NavigationPage.HasNavigationBar="False">
+
+    <VerticalStackLayout Spacing="10">
+        <CollectionView x:Name="CollectionTransacoes">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="15" ColumnDefinitions="50,*,auto">
+                        <Label
+                            BackgroundColor="White"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            Text="S"
+                            VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="#BABABA" />
+                        </VerticalStackLayout>
+                        <Label
+                            Grid.Column="2"
+                            HorizontalOptions="Center"
+                            Text="{Binding Value, StringFormat='{0:C}'}"
+                            TextColor="{StaticResource Tertiary}"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Border
+            Margin="10"
+            Padding="15"
+            Background="White"
+            Stroke="Transparent"
+            StrokeShape="RoundRectangle 30"
+            StrokeThickness="0">
+            <Grid ColumnDefinitions="*,80" RowDefinitions="Auto,Auto,30,Auto,Auto">
+                <Label
+                    FontSize="18"
+                    Text="Saldo"
+                    TextColor="#979797" />
+                <Label
+                    Grid.Row="1"
+                    FontSize="36"
+                    Text="R$ 2.760,00" />
+                <Button
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Padding="0,-20"
+                    Clicked="ButtonAdicionarTransacao_Clicked"
+                    CornerRadius="54"
+                    FontSize="48"
+                    HeightRequest="54"
+                    Text="+"
+                    WidthRequest="54" />
+                <Label
+                    Grid.Row="3"
+                    FontSize="12"
+                    Text="Receitas"
+                    TextColor="black" />
+                <Label
+                    Grid.Row="4"
+                    FontSize="12"
+                    Text="R$ 3.600,00" />
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    FontSize="8"
+                    Text="Despesas"
+                    TextColor="#979797" />
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    FontSize="12"
+                    Text="R$ 840,00" />
+            </Grid>
+        </Border>
+
+        <Button
+            Margin="15,0"
+            Clicked="ButtonEditarTransacao_Clicked"
+            HorizontalOptions="Center"
+            Text="Editar" />
+
+    </VerticalStackLayout>
+</ContentPage>
