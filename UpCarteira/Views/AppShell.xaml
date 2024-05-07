@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="UpCarteira.Views.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:transaction="clr-namespace:UpCarteira.Views.Transactions"
+    Title="UpCarteira"
+    FlyoutBehavior="Flyout">
+
+    <Shell.FlyoutHeader>
+        <StackLayout>
+            <Border
+                Padding="16,8"
+                Background="LightGray"
+                HorizontalOptions="Center"
+                Stroke="LightGray"
+                StrokeShape="RoundRectangle 40,0,0,40"
+                StrokeThickness="4">
+                <Label
+                    FontSize="32"
+                    HorizontalOptions="Center"
+                    Text="UpCarteira"
+                    TextColor="Black" />
+            </Border>
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="*">
+                <Border
+                    HorizontalOptions="Fill"
+                    Stroke="LightGray"
+                    StrokeShape="RoundRectangle"
+                    StrokeThickness="1">
+                    <Label
+                        Margin="10"
+                        FontSize="16"
+                        HorizontalOptions="StartAndExpand"
+                        Text="{Binding Title}"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+
+                </Border>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Início" ContentTemplate="{DataTemplate transaction:TransactionList}" />
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <Label
+            FontSize="20"
+            HorizontalOptions="Center"
+            Text="v1.0.0" />
+    </Shell.FlyoutFooter>
+</Shell>

@@ -1,8 +1,10 @@
+using CommunityToolkit.Mvvm.Messaging;
 using System.Text;
+using UpCarteira.Message;
 using UpCarteira.Models;
 using UpCarteira.Repositories;
 
-namespace UpCarteira.Views;
+namespace UpCarteira.Views.Transactions;
 
 public partial class TransactionAdd : ContentPage
 {
@@ -30,12 +32,12 @@ public partial class TransactionAdd : ContentPage
             Value = double.Parse(EntryValor.Text),
         };
 
-        var repository = ServiceHelper.GetService<ITransactionRepository>();
+        var repository = ServiceHelper.GetService<TransactionRepository>();
         repository.Add(transaction);
 
         Navigation.PopModalAsync();
         var contagemTransacoes = repository.GetAll().Count;
-        DisplayAlert("Mensagem!", $"Existem {contagemTransacoes} transações no banco!", "Ok");
+        WeakReferenceMessenger.Default.Send(new TransacaoAdicionadaMessage(transaction));
     }
 
     private bool isValidData()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="UpCarteira.Views.TransactionAdd"
+    x:Class="UpCarteira.Views.Transactions.TransactionEdit"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Adicionar">
+    Title="Editar">
     <VerticalStackLayout Spacing="10">
         <Border
             Margin="15"
@@ -14,9 +14,8 @@
             <Grid ColumnDefinitions="*,30" RowDefinitions="auto">
                 <Label
                     HorizontalOptions="Center"
-                    Text="Novo"
-                    TextColor="White"
-                    VerticalOptions="Center" />
+                    Text="Editar"
+                    TextColor="White" />
 
                 <Label
                     Grid.Row="0"
@@ -33,40 +32,23 @@
             </Grid>
         </Border>
 
-        <Label
-            x:Name="LabelError"
-            IsVisible="False"
-            TextColor="Red" />
-
         <Grid Margin="30,-20" ColumnDefinitions="*,*">
             <RadioButton
-                x:Name="RadioIncome"
                 Grid.Column="0"
                 Content="Receita"
                 HorizontalOptions="Start"
                 IsChecked="true" />
             <RadioButton
-                x:Name="RadioExpense"
                 Grid.Column="1"
                 Content="Despesa"
                 HorizontalOptions="End" />
         </Grid>
 
-        <Entry
-            x:Name="EntryName"
-            Margin="15,0"
-            Placeholder="Nome" />
-
-        <DatePicker x:Name="DatePickerDate" Margin="15,0" />
-
-        <Entry
-            x:Name="EntryValor"
-            Margin="15,0"
-            Placeholder="Valor" />
+        <Entry Margin="15,0" Placeholder="Nome" />
+        <Entry Margin="15,0" Placeholder="Valor" />
 
         <Button
             Margin="15,0"
-            Clicked="ButtonSalvar_Clicked"
             HorizontalOptions="Center"
             Text="Salvar" />
 

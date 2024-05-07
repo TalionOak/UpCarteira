@@ -1,4 +1,4 @@
-namespace UpCarteira.Views;
+namespace UpCarteira.Views.Transactions;
 
 public partial class TransactionEdit : ContentPage
 {

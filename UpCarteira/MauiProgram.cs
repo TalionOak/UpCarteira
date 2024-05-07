@@ -18,7 +18,6 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             })
             .RegisterDatabaseAndRepositories();
-
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
@@ -35,7 +34,7 @@ public static class MauiProgram
             {
                 return new LiteDatabase($"Filename={AppSettings.DatabasePath};Connection=Shared");
             })
-            .AddTransient<ITransactionRepository, TransactionRepository>();
+            .AddTransient<TransactionRepository>();
         return mauiAppBuilder;
     }
 }

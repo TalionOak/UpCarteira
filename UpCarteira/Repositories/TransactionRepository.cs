@@ -3,7 +3,7 @@ using UpCarteira.Models;
 
 namespace UpCarteira.Repositories;
 
-internal class TransactionRepository : ITransactionRepository
+internal class TransactionRepository
 {
     private readonly LiteDatabase _database;
     private readonly ILiteCollection<Transaction> _transactions;

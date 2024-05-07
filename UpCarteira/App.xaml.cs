@@ -8,7 +8,7 @@ namespace UpCarteira
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new TransactionList());
+            MainPage = new AppShell();
         }
     }
 }

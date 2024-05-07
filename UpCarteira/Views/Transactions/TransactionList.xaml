@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UpCarteira.Views.Transactions.TransactionList"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--<Shell.TitleView>
+        <StackLayout>
+            <Label HorizontalOptions="Center" Text="Transações" />
+            <Picker x:Name="picker" Title="Select a monkey">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Baboon</x:String>
+                        <x:String>Capuchin Monkey</x:String>
+                        <x:String>Blue Monkey</x:String>
+                        <x:String>Squirrel Monkey</x:String>
+                        <x:String>Golden Lion Tamarin</x:String>
+                        <x:String>Howler Monkey</x:String>
+                        <x:String>Japanese Macaque</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </StackLayout>
+    </Shell.TitleView>-->
+
+    <VerticalStackLayout Spacing="10">
+        <Border
+            Margin="10"
+            Padding="15"
+            Background="White"
+            Stroke="Transparent"
+            StrokeShape="RoundRectangle 30"
+            StrokeThickness="0">
+            <Grid ColumnDefinitions="*,80" RowDefinitions="Auto,Auto,30,Auto,Auto">
+                <Label
+                    FontSize="18"
+                    Text="Saldo"
+                    TextColor="#979797" />
+                <Label
+                    Grid.Row="1"
+                    FontSize="36"
+                    Text="R$ 0" />
+                <Button
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Padding="0,-20"
+                    Clicked="ButtonAdicionarTransacao_Clicked"
+                    CornerRadius="54"
+                    FontSize="48"
+                    HeightRequest="54"
+                    Text="+"
+                    WidthRequest="54" />
+                <Label
+                    Grid.Row="3"
+                    FontSize="16"
+                    Text="Receitas"
+                    TextColor="#979797" />
+                <Label
+                    Grid.Row="4"
+                    FontSize="14"
+                    Text="R$ 0" />
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    FontSize="16"
+                    Text="Despesas"
+                    TextColor="#979797" />
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    FontSize="14"
+                    Text="R$ 840,00" />
+            </Grid>
+        </Border>
+
+        <CollectionView x:Name="CollectionTransacoes">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="15" ColumnDefinitions="50,*,auto">
+                        <Label
+                            BackgroundColor="Black"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            Text="S"
+                            VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="#BABABA" />
+                        </VerticalStackLayout>
+                        <Label
+                            Grid.Column="2"
+                            HorizontalOptions="Center"
+                            Text="{Binding Value, StringFormat='{0:C}'}"
+                            TextColor="{StaticResource Tertiary}"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
